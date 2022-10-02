@@ -12,6 +12,8 @@ var number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var character = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/","\:","\;","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
 // This variable is for the concat statements later in the if statements!
 var selection;
+//this variable is so that the user's selected number reflects the password's length
+var text = [];
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -71,26 +73,19 @@ function writePassword() {
   } else {
     selection = number;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+  //this creates the randmoly selected password from all the variables!
+  for (var i = 0; i < passwordLength; i++) {
+    var choice = selection[Math.floor(Math.random() * selection.length)];
+    text.push(choice);
+  }
+  //This is for converting my arrays into string. Thank you Josh for this help!!!
+  var finalPassword = text.join("");
+  UserInput(finalPassword);
+  return finalPassword;
+  // modified function to put the password in the textbox using textcontent
+  function UserInput(finalPassword) {
+    document.getElementById("password").textContent = finalPassword;
+  }
 }
 
 // Add event listener to generate button
