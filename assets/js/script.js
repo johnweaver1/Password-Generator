@@ -14,12 +14,6 @@ var character = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/","\:","\
 var selection;
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
-generateBtn.addEventListener("click", function () {
-  finalPassword = writePassword();
-  document.getElementById("password").placeholder = finalPassword;
-});
-
 // Write password to the #password input
 function writePassword() {
   passwordLength = prompt("Your password must be between 8 and 128 characters. Pick a numeric value")
@@ -93,3 +87,7 @@ function writePassword() {
     document.getElementById("password").textContent = finalPassword;
   }
 
+  generateBtn.addEventListener("click", function () {
+    finalPassword = writePassword();
+    document.getElementById("password").placeholder = finalPassword;
+  });
