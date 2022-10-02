@@ -19,7 +19,7 @@ function writePassword() {
   passwordLength = prompt("Your password must be between 8 and 128 characters. Pick a numeric value")
   //creating an if statement for user selection of password
   if (!passwordLength) {
-    alert("There must be a value!");
+    alert("There must be a value! Please click the generate password button again.");
   } else if (passwordLength < 8 || passwordLength > 128) {
     var passwordLength = prompt("enter a numeric value (a number) between 8 and 128");
   } else {
@@ -31,7 +31,7 @@ function writePassword() {
 
   //Making if else statments for each variation of user inputs, so that the function creates a correct password.
   if (!confirmLC && !confirmUC && !confirmC && !confirmN) {
-      selection = alert("You have to select 'okay' to one thing to create the password!")
+      alert("You have to select 'okay' on one thing to create the password! Please click the generate password button again.")
       //all selections are selected.Breaking this up for easier clarification
   } else if (confirmLC && confirmUC && confirmC && confirmN) {
     selection = lowerCase.concat(number,character,upperCase);
