@@ -48,8 +48,29 @@ function writePassword() {
     selection = number.concat(upperCase,character);
   }
   // if there are 2 selections made!
-  
-
+  else if (confirmLC && confirmUC){
+    selection = lowerCase.concat(upperCase);
+  } else if (confirmLC && confirmC){
+    selection = lowerCase.concat(character);
+  } else if (confirmLC && confirmN){
+    selection = lowerCase.concat(number);
+  } else if (confirmUC && confirmC){
+    selection = upperCase.concat(character);
+  } else if (confirmUC && confirmN){
+    selection = upperCase.concat(number);
+  } else if (confirmN && confirmC){
+    selection = number.concat(character);
+  }
+  // 1 selection is made! (almost done)
+  else if (confirmLC){
+    selection = lowerCase;
+  } else if (confirmUC){
+    selection = upperCase;
+  } else if (confirmC){
+    selection = character;
+  } else {
+    selection = number;
+  }
 
 
 
