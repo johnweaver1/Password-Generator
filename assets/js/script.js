@@ -12,10 +12,13 @@ var number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var character = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/","\:","\;","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
 // This variable is for the concat statements later in the if statements!
 var selection;
-//this variable is so that the user's selected number reflects the password's length
-var text = [];
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
+generateBtn.addEventListener("click", function () {
+  finalPassword = writePassword();
+  document.getElementById("password").placeholder = finalPassword;
+});
 
 // Write password to the #password input
 function writePassword() {
@@ -73,6 +76,8 @@ function writePassword() {
   } else {
     selection = number;
   }
+  //this variable is so that the user's selected number reflects the password's length. It has to be in the function or the password won't reset per generate!
+  var text = [];
   //this creates the randmoly selected password from all the variables!
   for (var i = 0; i < passwordLength; i++) {
     var choice = selection[Math.floor(Math.random() * selection.length)];
@@ -82,11 +87,9 @@ function writePassword() {
   var finalPassword = text.join("");
   UserInput(finalPassword);
   return finalPassword;
+}
   // modified function to put the password in the textbox using textcontent
   function UserInput(finalPassword) {
     document.getElementById("password").textContent = finalPassword;
   }
-}
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
