@@ -18,16 +18,53 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   passwordLength = prompt("Your password must be between 8 and 128 characters. Pick a numeric value")
+  //creating an if statement for user selection of password
   if (!passwordLength) {
     alert("There must be a value!");
   } else if (passwordLength < 8 || passwordLength > 128) {
-    passwordLength = prompt("Numeric value has to be between 8 and 128");
+    var passwordLength = prompt("enter a numeric value (a number) between 8 and 128");
   } else {
-    confirmLC = confirm("Do you want lower case characters?");
-    confirmUC = confirm("Do you want upper case characters?");
-    confirmN = confirm("Do you want numbers in your password?");
-    confirmC = confirm("Do you want special characters?")
+     confirmLC = confirm("Do you want lower case characters?");
+     confirmUC = confirm("Do you want upper case characters?");
+     confirmN = confirm("Do you want numbers in your password?");
+     confirmC = confirm("Do you want special characters?")
   };
+
+  //Making if else statments for each variation of user inputs, so that the function creates a correct password.
+  if (!confirmLC && !confirmUC && !confirmC && !confirmN) {
+      selection = alert("You have to select 'okay' to one thing to create the password!")
+      //all selections are selected.Breaking this up for easier clarification
+  } else if (confirmLC && confirmUC && confirmC && confirmN) {
+    selection = lowerCase.concat(number,character,upperCase);
+  } 
+  // if three selections are made!
+  else if (confirmLC && confirmN && confirmC){
+    selection = lowerCase.concat(number,character);
+  } else if (confirmLC && confirmUC && confirmC){
+    selection = lowerCase.concat(upperCase,character);
+  } else if (confirmLC && confirmUC && confirmN){
+    selection = lowerCase.concat(upperCase,number);
+  } else if (confirmN && confirmUC && confirmC){
+    selection = number.concat(upperCase,character);
+  }
+  // if there are 2 selections made!
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
