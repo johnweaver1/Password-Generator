@@ -8,7 +8,7 @@ var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 var upperCase = lowerCase.map(function(x){
   return x.toUpperCase();
 })
-var number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+var number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 var character = ["!","#","$","%","&","'","(",")","*","+",",","-",".","/","\:","\;","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
 // This variable is for the concat statements later in the if statements!
 var selection;
@@ -26,7 +26,7 @@ function writePassword() {
      confirmLC = confirm("Do you want lower case characters?");
      confirmUC = confirm("Do you want upper case characters?");
      confirmN = confirm("Do you want numbers in your password?");
-     confirmC = confirm("Do you want special characters?")
+     confirmC = confirm("Do you want special characters?");
   };
 
   //Making if else statments for each variation of user inputs, so that the function creates a correct password.
@@ -70,7 +70,7 @@ function writePassword() {
   } else {
     selection = number;
   }
-  //this variable is so that the user's selected number reflects the password's length. It has to be in the function or the password won't reset per generate!
+  //this variable is so that the user's selected criteria reflects the password's length. It has to be in the function or the password won't reset per generate!
   var text = [];
   //this creates the randmoly selected password from all the variables!
   for (var i = 0; i < passwordLength; i++) {
